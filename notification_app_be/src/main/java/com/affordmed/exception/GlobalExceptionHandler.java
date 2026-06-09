@@ -16,7 +16,7 @@ public class GlobalExceptionHandler {
 
         return Map.of(
                 "error",
-                ex.getMessage()
+                ex.getMessage() != null ? ex.getMessage() : "Unknown error occurred"
         );
     }
 }

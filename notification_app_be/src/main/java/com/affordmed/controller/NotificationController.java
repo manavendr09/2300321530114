@@ -13,15 +13,12 @@ public class NotificationController {
 
     private final NotificationService service;
 
-    public NotificationController(
-            NotificationService service
-    ) {
+    public NotificationController(NotificationService service) {
         this.service = service;
     }
 
     @GetMapping("/top")
     public List<Notification> getTopNotifications() {
-
         return service.getTopNotifications();
     }
 }

@@ -14,15 +14,8 @@ function AllNotifications() {
     useState("All");
 
   useEffect(() => {
-    loadData();
+    getNotifications().then(data => setNotifications(data));
   }, []);
-
-  async function loadData() {
-    const data =
-      await getNotifications();
-
-    setNotifications(data);
-  }
 
   const filtered =
     filter === "All"

@@ -1,41 +1,50 @@
 package com.affordmed.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Notification {
 
-    private String ID;
-    private String Type;
-    private String Message;
-    private String Timestamp;
+    @JsonProperty("ID")
+    private String id;
 
-    public String getID() {
-        return ID;
+    @JsonProperty("Type")
+    private String type;
+
+    @JsonProperty("Message")
+    private String message;
+
+    @JsonProperty("Timestamp")
+    private String timestamp;
+
+    public String getId() {
+        return id;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(String type) {
-        Type = type;
+        this.type = type;
     }
 
     public String getMessage() {
-        return Message;
+        return message;
     }
 
     public void setMessage(String message) {
-        Message = message;
+        this.message = message;
     }
 
     public String getTimestamp() {
-        return Timestamp;
+        return timestamp;
     }
 
     public void setTimestamp(String timestamp) {
-        Timestamp = timestamp;
+        this.timestamp = timestamp;
     }
 }

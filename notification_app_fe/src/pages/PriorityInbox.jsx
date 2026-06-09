@@ -9,15 +9,8 @@ function PriorityInbox() {
     useState([]);
 
   useEffect(() => {
-    loadData();
+    getNotifications().then(data => setNotifications(data));
   }, []);
-
-  const loadData = async () => {
-    const data =
-      await getNotifications();
-
-    setNotifications(data);
-  };
 
   return (
     <div className="container">
