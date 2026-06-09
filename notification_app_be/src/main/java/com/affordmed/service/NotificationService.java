@@ -26,7 +26,7 @@ public class NotificationService {
         this.restTemplate = restTemplate;
     }
 
-    public List<Notification> getTopNotifications() {
+    public List<Notification> getTopNotifications(int limit) {
 
         HttpHeaders headers = new HttpHeaders();
 
@@ -65,8 +65,29 @@ public class NotificationService {
 
         return notifications
                 .stream()
-                .limit(10)
+                .limit(limit)
                 .toList();
+    }
+
+    public ResponseEntity<String> getAllNotifications(Integer page, Integer limit, String notificationType) {
+        org.springframework.web.util.UriComponentsBuilder builder = org.springframework.web.util.UriComponentsBuilder.fromHttpUrl(url);
+        if (page != null) builder.queryParam("page", page);
+        if (limit != null) builder.queryParam("limit", limit);
+        if (notificationType != null && !notificationType.isEmpty() && !notificationType.equalsIgnoreCase("All")) {
+            builder.queryParam("notification_type", notificationType);
+        }
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setBearerAuth(token);
+
+        HttpEntity<Void> entity = new HttpEntity<>(headers);
+
+        return restTemplate.exchange(
+                builder.toUriString(),
+                HttpMethod.GET,
+                entity,
+                String.class
+        );
     }
 
     private int priority(String type) {

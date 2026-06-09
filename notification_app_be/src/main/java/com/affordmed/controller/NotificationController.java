@@ -18,7 +18,15 @@ public class NotificationController {
     }
 
     @GetMapping("/top")
-    public List<Notification> getTopNotifications() {
-        return service.getTopNotifications();
+    public List<Notification> getTopNotifications(@RequestParam(defaultValue = "10") int limit) {
+        return service.getTopNotifications(limit);
+    }
+
+    @GetMapping("/all")
+    public org.springframework.http.ResponseEntity<String> getAllNotifications(
+            @RequestParam(required = false) Integer page,
+            @RequestParam(required = false) Integer limit,
+            @RequestParam(name = "notification_type", required = false) String notificationType) {
+        return service.getAllNotifications(page, limit, notificationType);
     }
 }
