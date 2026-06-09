@@ -99,6 +99,7 @@ Response:
 <img width="891" height="882" alt="image" src="https://github.com/user-attachments/assets/2dc09acb-b42d-4e30-9118-e869b25b284c" />
 
 ## Frontend
+<img width="627" height="928" alt="image" src="https://github.com/user-attachments/assets/38abdf05-fdd3-407d-959c-390e024ff253" />
 
 * Priority Inbox
 * All Notifications Page
